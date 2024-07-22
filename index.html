@@ -168,21 +168,21 @@
         }
         var select_box_year = document.getElementById('year');
         var select_box_month = document.getElementById('month');
-        var select_box_standard_year = document.getElementById('standard_year');
-        var select_box_standard_month = document.getElementById('standard_month');
-        var selected_standard_year = document.getElementById('standard_year').value;
-        var selected_standard_month = document.getElementById('standard_month').value;
+        // var select_box_standard_year = document.getElementById('standard_year');
+        // var select_box_standard_month = document.getElementById('standard_month');
+        // var selected_standard_year = document.getElementById('standard_year').value;
+        // var selected_standard_month = document.getElementById('standard_month').value;
         if (onload != 1) {
             for (var i = select_box_year.length - 1; i >= 0; i--) {
                 select_box_year.remove(i);
-                select_box_standard_year.remove(i);
+                //select_box_standard_year.remove(i);
             }
             for (var i = select_box_month.length - 1; i >= 0; i--) {
                 select_box_month.remove(i);
             }
-            for (var i = select_box_standard_month.length - 1; i >= 0; i--) {
-                select_box_standard_month.remove(i);
-            }
+            // for (var i = select_box_standard_month.length - 1; i >= 0; i--) {
+            //     select_box_standard_month.remove(i);
+            // }
         }
         for (var i = 2016; i < year + 1; i++) {
             var select = document.getElementById('year');
@@ -198,18 +198,18 @@
                 option.setAttribute("selected", true);
             }
         }
-        for (var i = 2016; i < year + 1; i++) {
-            var select = document.getElementById('standard_year');
-            var option = document.createElement('option');
-            option.text = i;
-            option.value = i;
-            select.appendChild(option);
-            if (option.value == 2016 && onload == 1) {
-                option.setAttribute("selected", true);
-            } else if (option.value == selected_standard_year && onload == 0 || option.value == selected_standard_year && onload == 2) {
-                option.setAttribute("selected", true);
-            }
-        }
+        // for (var i = 2016; i < year + 1; i++) {
+        //     var select = document.getElementById('standard_year');
+        //     var option = document.createElement('option');
+        //     option.text = i;
+        //     option.value = i;
+        //     select.appendChild(option);
+        //     if (option.value == 2016 && onload == 1) {
+        //         option.setAttribute("selected", true);
+        //     } else if (option.value == selected_standard_year && onload == 0 || option.value == selected_standard_year && onload == 2) {
+        //         option.setAttribute("selected", true);
+        //     }
+        // }
         for (var i = 1; i < 13; i++) {
             var select = document.getElementById('month');
             var option = document.createElement('option');
@@ -244,33 +244,33 @@
                 }
             }
         }
-        for (var i = 1; i < 13; i++) {
-            var select = document.getElementById('standard_month');
-            var option = document.createElement('option');
-            option.text = i;
-            option.value = i;
-            select.appendChild(option);
-            if (onload == 1) {
-                if (option.value == 1) {
-                    option.setAttribute("selected", true);
-                    break;
-                }
-            } else if (onload == 0 || onload == 2) {
-                if (year == selected_standard_year && month < selected_standard_month) {
-                    if (option.value == month) {
-                        option.setAttribute("selected", true);
-                        break;
-                    }
-                } else {
-                    if (option.value == selected_standard_month) {
-                        option.setAttribute("selected", true);
-                    }
-                    if (year == selected_standard_year && option.value == month) {
-                        break;
-                    }
-                }
-            }
-        }
+        // for (var i = 1; i < 13; i++) {
+        //     var select = document.getElementById('standard_month');
+        //     var option = document.createElement('option');
+        //     option.text = i;
+        //     option.value = i;
+        //     select.appendChild(option);
+        //     if (onload == 1) {
+        //         if (option.value == 1) {
+        //             option.setAttribute("selected", true);
+        //             break;
+        //         }
+        //     } else if (onload == 0 || onload == 2) {
+        //         if (year == selected_standard_year && month < selected_standard_month) {
+        //             if (option.value == month) {
+        //                 option.setAttribute("selected", true);
+        //                 break;
+        //             }
+        //         } else {
+        //             if (option.value == selected_standard_month) {
+        //                 option.setAttribute("selected", true);
+        //             }
+        //             if (year == selected_standard_year && option.value == month) {
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
         if (onload == 1) {
             setting(0);
         }
@@ -292,7 +292,7 @@
         var selected_month = document.getElementById('month').value;
         var div_pyramid = document.getElementById('population_pyramid');
         var div_chart = document.getElementById('pie_chart');
-        var standard_date = document.getElementById('standard_date');
+        // var standard_date = document.getElementById('standard_date');
         dropdown(0, selected_year, selected_month);
         if (year == selected_year && month < selected_month) {
             selected_year = year;
@@ -318,7 +318,7 @@
 
             div_pyramid.style.display = 'none';
             div_chart.style.display = 'block';
-            standard_date.style.display = 'none';
+            // standard_date.style.display = 'none';
             setinterval = setInterval(chart, 1, selected_year - 2016, selected_month - 1, 0);
         } else if (animation_button == 0 || animation_button == 3) {
             if (on_off == 'off') {
@@ -327,7 +327,7 @@
             chart_version = 0;
             div_pyramid.style.display = 'block';
             div_chart.style.display = 'none';
-            standard_date.style.display = 'inline';
+            // standard_date.style.display = 'inline';
             setinterval = setInterval(glaph, 1, selected_year - 2016, selected_month - 1, 0);
         }
         
@@ -335,9 +335,10 @@
 
     function glaph(selected_year, selected_month, animation_mode) {
         make_database();
-        var standard_year = document.getElementById('standard_year').value;
-        var standard_month = document.getElementById('standard_month').value;
-        var standard_data = database[standard_year - 2016][standard_month - 1];
+        // var standard_year = document.getElementById('standard_year').value;
+        // var standard_month = document.getElementById('standard_month').value;
+        // var standard_data = database[standard_year - 2016][standard_month - 1];
+        var standard_data = database[0][0];
         data = database[selected_year + year_gap][selected_month + month_gap];
         if (animation_mode == 1) {
             dropdown(2, selected_year + year_gap, selected_month + month_gap);
@@ -368,14 +369,17 @@
             pen.strokeStyle = "rgb(0,200,0)";
             pen.moveTo(65, 30 + 30 * i);
             if (animation_mode == 0) {
-                if (frame > data[i] * 240 / standard_data[i]) {
+                // if (frame > data[i] * 240 / standard_data[i]) {
+                if (frame > data[i] * 300 / standard_data[i]) {
                     over_frame++;
-                    pen.lineTo(65 + data[i] * 240 / standard_data[i], 30 + 30 * i);
+                    // pen.lineTo(65 + data[i] * 240 / standard_data[i], 30 + 30 * i);
+                    pen.lineTo(65 + data[i] * 300 / standard_data[i], 30 + 30 * i);
                 } else {
                     pen.lineTo(65 + frame, 30 + 30 * i);
                 }
             } else {
-                pen.lineTo(65 + data[i] * 240 / standard_data[i], 30 + 30 * i);
+                // pen.lineTo(65 + data[i] * 240 / standard_data[i], 30 + 30 * i);
+                pen.lineTo(65 + data[i] * 300 / standard_data[i], 30 + 30 * i);
             }
             pen.stroke();
         }
@@ -383,25 +387,30 @@
         pen.beginPath();
         pen.fillStyle = "rgb(0,0,0)";
         pen.textAlign = 'center';
-        for (var i = 0; i < 15; i++) {
-            pen.font = "12px sans-serif";
-            pen.fillText(i * 10, 65 + i * 24, 395);
+        // for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < 11; i++) {
+            // pen.font = "12px sans-serif";
+            // pen.fillText(i * 10, 65 + i * 24, 395);
+            pen.font = "15px sans-serif";
+            pen.fillText(i * 10, 65 + i * 30, 395);
         }
         pen.font = "15px sans-serif";
         for (var i = 0; i < area.length; i++) {
             pen.fillText(area[i], 30, 35 + 30 * i);
         }
         pen.fillText('(地区)', 30, 390);
-        pen.font = "12px sans-serif";
-        pen.fillText('(%)', 435, 395);
-        pen.font = "15px sans-serif";
+        // pen.font = "12px sans-serif";
+        pen.fillText('(%)', 400, 395);
+        // pen.font = "15px sans-serif";
 
         pen.beginPath();
         pen.strokeStyle = "rgb(0,0,0)";
         pen.lineWidth = 1;
         pen.moveTo(65, 380);
-        pen.lineTo(canvas.width - 15, 380);
-        pen.lineTo(canvas.width - 15, 10);
+        // pen.lineTo(canvas.width - 15, 380);
+        // pen.lineTo(canvas.width - 15, 10);
+        pen.lineTo(canvas.width - 65, 380);
+        pen.lineTo(canvas.width - 65, 10);
         pen.lineTo(65, 10);
         pen.lineTo(65,380);
         pen.stroke();
@@ -409,9 +418,12 @@
         pen.beginPath();
         pen.strokeStyle = "rgba(0,0,0,0.5)";
         pen.lineWidth = 1;
-        for (var i = 0; i < 15; i++){
-            pen.moveTo(65 + i * 24, 10);
-            pen.lineTo(65 + i * 24, 380);
+        // for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < 11; i++) {
+            // pen.moveTo(65 + i * 24, 10);
+            // pen.lineTo(65 + i * 24, 380);
+            pen.moveTo(65 + i * 30, 10);
+            pen.lineTo(65 + i * 30, 380);
         }
         pen.stroke();
         if (animation_mode == 0) {
@@ -597,12 +609,12 @@ a {
 <body onload="dropdown(1, 0, 0)">
 <h1>新発田市の地区別人口</h1>
 <canvas id="canvas" width="450" height="400"></canvas>
-<a>
+<!-- <a>
     <p id="standard_date">
         基準<select id="standard_year" onchange="setting(0)"></select>年
         <select id="standard_month" onchange="setting(0)"></select>月
     </p>
-</a>
+</a> -->
 <p>
     <select id="year" onchange="setting(0)"></select>年
     <select id="month" onchange="setting(0)"></select>月
