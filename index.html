@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=0.475">
+<meta name="viewport" content="width=device-width,initial-scale=0.8">
 <title>新発田市の地区別人口</title>
 <script src="database_json_2016.js"></script>
 <script src="database_json_2017.js"></script>
@@ -293,6 +293,9 @@
         var div_pyramid = document.getElementById('population_pyramid');
         var div_chart = document.getElementById('pie_chart');
         var standard_date = document.getElementById('standard_date');
+        var canvas = document.getElementById('canvas');
+        var pen = canvas.getContext("2d");
+        pen.scale(0.9, 1);
         dropdown(0, selected_year, selected_month);
         if (year == selected_year && month < selected_month) {
             selected_year = year;
