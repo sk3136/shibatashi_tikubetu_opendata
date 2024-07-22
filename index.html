@@ -508,19 +508,19 @@
         pen.font = "15px sans-serif";
         for (var i = 0; i < percentage_list.length / 4; i++) {
             pen.fillStyle = fillstyle_list[i];
-            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', i * 100 + 250, 325);
+            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', i * 100 + (canvas.width / 2 - 100), 325);
         }
         for (var i = percentage_list.length / 4; i < percentage_list.length / 2; i++) {
             pen.fillStyle = fillstyle_list[i];
-            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', (i - percentage_list.length / 4) * 100 + 250, 345);
+            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', (i - percentage_list.length / 4) * 100 + (canvas.width / 2 - 100), 345);
         }
         for (var i = percentage_list.length / 2; i < percentage_list.length * 3 / 4; i++) {
             pen.fillStyle = fillstyle_list[i];
-            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', (i - percentage_list.length / 2) * 100 + 250, 365);
+            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', (i - percentage_list.length / 2) * 100 + (canvas.width / 2 - 100), 365);
         }
         for (var i = percentage_list.length * 3 / 4; i < percentage_list.length; i++) {
             pen.fillStyle = fillstyle_list[i];
-            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', (i - percentage_list.length * 3 / 4) * 100 + 250, 385);
+            pen.fillText(area[i] + Math.round(percentage_list[i] * 10) / 10 + '%', (i - percentage_list.length * 3 / 4) * 100 + (canvas.width / 2 - 100), 385);
         }
 
         chart_version = 1;
@@ -593,7 +593,7 @@ a {
 </head>
 <body onload="dropdown(1, 0, 0)">
 <h1>新発田市の地区別人口</h1>
-<canvas id="canvas" width="500" height="400"></canvas>
+<canvas id="canvas" width="450" height="400"></canvas>
 <a>
     <p id="standard_date">
         基準<select id="standard_year" onchange="setting(0)"></select>年
