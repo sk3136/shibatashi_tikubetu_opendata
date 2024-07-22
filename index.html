@@ -368,14 +368,14 @@
             pen.strokeStyle = "rgb(0,200,0)";
             pen.moveTo(70, 30 + 30 * i);
             if (animation_mode == 0) {
-                if (frame > data[i] * 370 / standard_data[i]) {
+                if (frame > data[i] * 200 / standard_data[i]) {
                     over_frame++;
-                    pen.lineTo(70 + data[i] * 370 / standard_data[i], 30 + 30 * i);
+                    pen.lineTo(70 + data[i] * 200 / standard_data[i], 30 + 30 * i);
                 } else {
                     pen.lineTo(70 + frame, 30 + 30 * i);
                 }
             } else {
-                pen.lineTo(70 + data[i] * 370 / standard_data[i], 30 + 30 * i);
+                pen.lineTo(70 + data[i] * 200 / standard_data[i], 30 + 30 * i);
             }
             pen.stroke();
         }
@@ -385,7 +385,7 @@
         pen.textAlign = 'center';
         pen.font = "15px sans-serif";
         for (var i = 0; i < 16; i++){
-            pen.fillText(i * 10, 70 + i * 37, 395);
+            pen.fillText(i * 10, 70 + i * 20, 395);
         }
         for (var i = 0; i < area.length; i++) {
             pen.fillText(area[i], 35, 35 + 30 * i);
@@ -407,8 +407,8 @@
         pen.strokeStyle = "rgba(0,0,0,0.5)";
         pen.lineWidth = 1;
         for (var i = 0; i < 16; i++){
-            pen.moveTo(70 + i * 37, 10);
-            pen.lineTo(70 + i * 37, 380);
+            pen.moveTo(70 + i * 20, 10);
+            pen.lineTo(70 + i * 20, 380);
         }
         pen.stroke();
         if (animation_mode == 0) {
