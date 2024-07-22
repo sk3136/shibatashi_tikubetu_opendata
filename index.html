@@ -385,30 +385,30 @@
         pen.textAlign = 'center';
         pen.font = "15px sans-serif";
         for (var i = 0; i < 16; i++){
-            pen.fillText(i * 10, 70 + i * 30, 395);
+            pen.fillText(i * 10, 65 + i * 30, 395);
         }
         for (var i = 0; i < area.length; i++) {
-            pen.fillText(area[i], 35, 35 + 30 * i);
+            pen.fillText(area[i], 30, 35 + 30 * i);
         }
-        pen.fillText('(地区)', 35, 390);
-        pen.fillText('(%)', 660, 395);
+        pen.fillText('(地区)', 30, 390);
+        pen.fillText('(%)', 400, 395);
 
         pen.beginPath();
         pen.strokeStyle = "rgb(0,0,0)";
         pen.lineWidth = 1;
-        pen.moveTo(70, 380);
-        pen.lineTo(canvas.width - 60, 380);
-        pen.lineTo(canvas.width - 60, 10);
-        pen.lineTo(70, 10);
-        pen.lineTo(70,380);
+        pen.moveTo(65, 380);
+        pen.lineTo(canvas.width - 30, 380);
+        pen.lineTo(canvas.width - 30, 10);
+        pen.lineTo(65, 10);
+        pen.lineTo(65,380);
         pen.stroke();
 
         pen.beginPath();
         pen.strokeStyle = "rgba(0,0,0,0.5)";
         pen.lineWidth = 1;
         for (var i = 0; i < 16; i++){
-            pen.moveTo(70 + i * 30, 10);
-            pen.lineTo(70 + i * 30, 380);
+            pen.moveTo(65 + i * 30, 10);
+            pen.lineTo(65 + i * 30, 380);
         }
         pen.stroke();
         if (animation_mode == 0) {
