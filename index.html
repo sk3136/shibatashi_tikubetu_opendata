@@ -292,6 +292,8 @@
         var selected_month = document.getElementById('month').value;
         var div_pyramid = document.getElementById('population_pyramid');
         var div_chart = document.getElementById('pie_chart');
+        var standard_year = document.getElementById('standard_year');
+        var standard_month = document.getElementById('standard_month');
         dropdown(0, selected_year, selected_month);
         if (year == selected_year && month < selected_month) {
             selected_year = year;
@@ -317,14 +319,18 @@
 
             div_pyramid.style.display = 'none';
             div_chart.style.display = 'block';
+            standard_year.style.display = 'none';
+            standard_month.style.display = 'none';
             setinterval = setInterval(chart, 1, selected_year - 2016, selected_month - 1, 0);
         } else if (animation_button == 0 || animation_button == 3) {
             if (on_off == 'off') {
                 clearInterval(setinterval);
             }
+            chart_version = 0;
             div_pyramid.style.display = 'block';
             div_chart.style.display = 'none';
-            chart_version = 0;
+            standard_year.style.display = 'block';
+            standard_month.style.display = 'block';
             setinterval = setInterval(glaph, 1, selected_year - 2016, selected_month - 1, 0);
         }
         
