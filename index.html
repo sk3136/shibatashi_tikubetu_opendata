@@ -366,16 +366,16 @@
         for (var i = 0; i < area.length; i++) {
             pen.beginPath();
             pen.strokeStyle = "rgb(0,200,0)";
-            pen.moveTo(70, 30 + 30 * i);
+            pen.moveTo(65, 30 + 30 * i);
             if (animation_mode == 0) {
-                if (frame > data[i] * 300 / standard_data[i]) {
+                if (frame > data[i] * 240 / standard_data[i]) {
                     over_frame++;
-                    pen.lineTo(70 + data[i] * 300 / standard_data[i], 30 + 30 * i);
+                    pen.lineTo(65 + data[i] * 240 / standard_data[i], 30 + 30 * i);
                 } else {
-                    pen.lineTo(70 + frame, 30 + 30 * i);
+                    pen.lineTo(65 + frame, 30 + 30 * i);
                 }
             } else {
-                pen.lineTo(70 + data[i] * 300 / standard_data[i], 30 + 30 * i);
+                pen.lineTo(65 + data[i] * 240 / standard_data[i], 30 + 30 * i);
             }
             pen.stroke();
         }
@@ -383,22 +383,25 @@
         pen.beginPath();
         pen.fillStyle = "rgb(0,0,0)";
         pen.textAlign = 'center';
-        pen.font = "15px sans-serif";
-        for (var i = 0; i < 16; i++){
-            pen.fillText(i * 10, 65 + i * 30, 395);
+        for (var i = 0; i < 15; i++) {
+            pen.font = "12px sans-serif";
+            pen.fillText(i * 10, 65 + i * 24, 395);
         }
+        pen.font = "15px sans-serif";
         for (var i = 0; i < area.length; i++) {
             pen.fillText(area[i], 30, 35 + 30 * i);
         }
         pen.fillText('(地区)', 30, 390);
-        pen.fillText('(%)', 400, 395);
+        pen.font = "12px sans-serif";
+        pen.fillText('(%)', 435, 395);
+        pen.font = "15px sans-serif";
 
         pen.beginPath();
         pen.strokeStyle = "rgb(0,0,0)";
         pen.lineWidth = 1;
         pen.moveTo(65, 380);
-        pen.lineTo(canvas.width - 30, 380);
-        pen.lineTo(canvas.width - 30, 10);
+        pen.lineTo(canvas.width - 15, 380);
+        pen.lineTo(canvas.width - 15, 10);
         pen.lineTo(65, 10);
         pen.lineTo(65,380);
         pen.stroke();
@@ -406,9 +409,9 @@
         pen.beginPath();
         pen.strokeStyle = "rgba(0,0,0,0.5)";
         pen.lineWidth = 1;
-        for (var i = 0; i < 16; i++){
-            pen.moveTo(65 + i * 30, 10);
-            pen.lineTo(65 + i * 30, 380);
+        for (var i = 0; i < 15; i++){
+            pen.moveTo(65 + i * 24, 10);
+            pen.lineTo(65 + i * 24, 380);
         }
         pen.stroke();
         if (animation_mode == 0) {
