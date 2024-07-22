@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=0.45">
+<meta name="viewport" content="width=device-width,initial-scale=0.475">
 <title>新発田市の地区別人口</title>
 <script src="database_json_2016.js"></script>
 <script src="database_json_2017.js"></script>
@@ -584,13 +584,15 @@ a {
 <body onload="dropdown(1, 0, 0)">
 <h1>新発田市の地区別人口</h1>
 <canvas id="canvas" width="700" height="400"></canvas>
-<p id="standard_date">
-基準<select id="standard_year" onchange="setting(0)"></select>年
-<select id="standard_month" onchange="setting(0)"></select>月
-</p>
+<a>
+    <p id="standard_date">
+        基準<select id="standard_year" onchange="setting(0)"></select>年
+        <select id="standard_month" onchange="setting(0)"></select>月
+    </p>
+</a>
 <p>
-<select id="year" onchange="setting(0)"></select>年
-<select id="month" onchange="setting(0)"></select>月
+    <select id="year" onchange="setting(0)"></select>年
+    <select id="month" onchange="setting(0)"></select>月
 </p>
 <div id="population_pyramid">
     <button onclick="setting(1)">人口の推移を<br>アニメーションで見る</button>
